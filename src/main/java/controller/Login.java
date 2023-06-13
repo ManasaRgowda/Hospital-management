@@ -76,7 +76,7 @@ public class Login extends HttpServlet {
         	     if("999999".equals(password))
         	     {
         	      req.getSession().setAttribute("admin", "admin");
-        		  resp.getWriter().print("<h1 style='color:green'>Login succesful</h1>");
+        		  resp.getWriter().print("<h1 style='color:black'>Login succesful</h1>");
  			      req.getRequestDispatcher("adminHome.html").include(req, resp);
         	      }
                 else{
