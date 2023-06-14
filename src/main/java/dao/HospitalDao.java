@@ -130,6 +130,17 @@ public class HospitalDao {
 	public List<Patient> fetchAllPatient() {
 		return manager.createQuery("select x from Patient x").getResultList();
 	}
+	
+	//book appointment by id
+	
+	public Patient fetchPatientById(int pid) {
+		return manager.find(Patient.class, pid);	
+	}
+	//to check if doctor is available or not  whilw booking the appointment
+	
+	public List<Doctor> fetchAvailableDoctor(){
+		return manager.createQuery("select x from Doctor x where available=true").getResultList();
+	}
 
 	//to edit/update
 		public Patient fetch1(int id){

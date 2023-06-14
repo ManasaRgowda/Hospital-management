@@ -1,4 +1,4 @@
-<%@page import="java.util.Base64"%>
+<%@page import="org.apache.commons.codec.binary.Base64"%>
 <%@page import="dto.Patient"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -18,8 +18,8 @@
 <th>Mobile</th>
 <th>Age</th>
 <th>Picture</th>
-<th>Edit</th>
 <th>Book Appointment</th>
+<th>Edit</th>
 </tr> 
     
 <%for(Patient pt1:patient) {%>
@@ -29,14 +29,15 @@
 <th><%=pt1.getMobile()%></th>
 <th><%=pt1.getAge()%></th>
 <th><%
-String base64=Base64.getEncoder().encodeToString(pt1.getPicture());
+String base64=Base64.encodeBase64String(pt1.getPicture());
 %>
-<img alt="unknown" src="data:image/jpeg;base64,<%=base64%>"></th>
-<th><a href="edit.jsp?id=<%=pt1.getId()%>"><button>Edit</button></a></th>  
-<th><button>Book</button></th>
-
+<img height=100px; width=100px; alt="unknown" src="data:image/jpeg;base64,<%=base64%>"></th>
+<th><a href="appointmentForm.jsp?id=<%=pt1.getId()%>"><button>Book Appointment</button></a></th>
+<th><a href="edit.jsp?id=<%=pt1.getId()%>"><button>Edit details</button></a></th>
 </tr>
 <%} %>
 </table>
+<br>
+<a href="login1.html"><button>Back</button></a>
 </body>
 </html>

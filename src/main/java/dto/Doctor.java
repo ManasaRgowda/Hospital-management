@@ -28,7 +28,7 @@ public class Doctor {
     private boolean status;
     private String specialization;
     private String qualification;
-    private boolean availabile;
+    private boolean available;
     
     
 	@OneToMany
@@ -101,10 +101,10 @@ public class Doctor {
 		this.qualification = qualification;
 	}
 	public boolean isAvailabile() {
-		return availabile;
+		return available;
 	}
-	public void setAvailabile(boolean availabile) {
-		this.availabile = availabile;
+	public void setAvailabile(boolean available) {
+		this.available = available;
 	
 	}
 }
